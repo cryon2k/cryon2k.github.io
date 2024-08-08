@@ -64,7 +64,17 @@
             max-width: 800px;
             margin: auto;
         }
+                /* Media Query für Bildschirme mit einer Breite von 800px oder weniger */
+                @media (max-width: 800px) {
+            body {
+                overflow: visible; /* Ermöglicht das Scrollen des gesamten Bildschirms nur bei Bedarf */
+            }
+            .main {
+                overflow: visible; /* Scrollbar nur bei Bedarf im Hauptbereich */
+            }
+        }
     </style>
+    
 </head>
 <body>
 
