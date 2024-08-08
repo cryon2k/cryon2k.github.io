@@ -11,6 +11,10 @@
             color: #f1f1f1;
             margin: 0;
             padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Verhindert das Scrollen der gesamten Seite */
         }
         header {
             background-color: #1a1a1a;
@@ -34,22 +38,28 @@
             text-decoration: underline;
         }
         .main {
+            flex: 1;
             padding: 20px;
             text-align: center;
-            max-height: calc(100vh - 270px); /* Höhe des Viewports minus Header und Footer */
             overflow-y: auto; /* Scrollbar nur bei Bedarf */
+        }
+        body a {
+            color: #f1c40f;
+            text-decoration: none;
         }
         .main img {
             max-width: 200px;
             margin: 20px 0;
         }
+        body a:hover {
+            text-decoration: underline;
+        }
         footer {
             background-color: #1a1a1a;
             color: #f1c40f;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
+            
+            position: relative;
             width: 100%;
         }
         footer a {
@@ -59,13 +69,9 @@
         footer a:hover {
             text-decoration: underline;
         }
-        .content {
-            text-align: left;
-            max-width: 800px;
-            margin: auto;
-        }
-                /* Media Query für Bildschirme mit einer Breite von 800px oder weniger */
-                @media (max-width: 800px) {
+
+        /* Media Query für Bildschirme mit einer Breite von 800px oder weniger */
+        @media (max-width: 800px) {
             body {
                 overflow: visible; /* Ermöglicht das Scrollen des gesamten Bildschirms nur bei Bedarf */
             }
