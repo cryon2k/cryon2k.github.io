@@ -27,6 +27,7 @@
             justify-content: center;
             background-color: #1a1a1a;
             padding: 10px;
+            flex-wrap: wrap; /* Ermöglicht das Umbruch des Menüs */
         }
         nav a {
             color: #f1c40f;
@@ -36,6 +37,18 @@
         }
         nav a:hover {
             text-decoration: underline;
+        }
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #f1c40f;
+            margin-left: 15px;
+        }
+        .menu-items {
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
         .main {
             flex: 1;
@@ -66,12 +79,24 @@
         }
 
         /* Media Query für Bildschirme mit einer Breite von 800px oder weniger */
-        @media (max-width: 800px) {
+        @media (max-width: 600px) {
             body {
                 overflow: visible; /* Ermöglicht das Scrollen des gesamten Bildschirms nur bei Bedarf */
             }
             .main {
                 overflow: visible; /* Scrollbar nur bei Bedarf im Hauptbereich */
+            }
+            .menu-items {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            .menu-items.active {
+                display: flex;
+            }
+            .menu-icon {
+                display: block;
             }
         }
     </style>
@@ -83,6 +108,8 @@
 </header>
 
 <nav>
+    <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+    <div class="menu-items">
     <a href="index.html">Home</a>
     <a href="bitcoin.html">Bitcoin</a>
     <a href="ethereum.html">Ethereum</a>
@@ -142,6 +169,11 @@
 <footer>
     <p>&copy; 2024 Cryon2k. Alle Rechte vorbehalten. <a href="impressum.html">Impressum</a></p>
 </footer>
-
+<script>
+    function toggleMenu() {
+        var menu = document.querySelector('.menu-items');
+        menu.classList.toggle('active');
+    }
+</script>
 </body>
 </html>
